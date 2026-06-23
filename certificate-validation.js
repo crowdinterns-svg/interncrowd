@@ -84,18 +84,31 @@ const db = getFirestore(app);
                (u.email && u.email.toLowerCase() === q);
       }) || null;
     }
-    function doVerify(){
-      var query = input.value || '';
-      if(!query.trim()){ input.focus(); return; }
-      var user = findUser(query);
-      if(!user){
-        showNotFound(query.trim());
-      } else if(user.status === 'issued'){
-        showCertificate(user);
-      } else {
-        showPending(user);
-      }
+async function doVerify() {
+
+    var query = input.value || '';
+
+    if (!query.trim()) {
+        input.focus();
+        return;
     }
+
+    const docRef = doc(db, "users", query.trim());
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists()) {
+        showNotFound(query.trim());
+        return;
+    }
+
+    const user = docSnap.data();
+
+    if (user.status === "issued") {
+        showCertificate(user);
+    } else {
+        showPending(user);
+    }
+}
     btn.addEventListener('click', doVerify);
     input.addEventListener('keydown', function(e){
       if(e.key === 'Enter') doVerify();
