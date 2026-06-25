@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verify Certificate | InternCrowd</title>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+      min-height: 100vh;
+    }
+
+    a { text-decoration: none; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background: #1a1a2e;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 65px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .navbar .logo {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .navbar .logo span {
+      color: #6c63ff;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      margin-left: 28px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: #fff; }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2b6b 50%, #6c63ff 100%);
+      color: white;
+      text-align: center;
+      padding: 70px 20px 100px;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 16px;
+      opacity: 0.8;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ===== VERIFY CARD ===== */
+    .card-wrapper {
+      max-width: 600px;
+      margin: -50px auto 60px;
+      padding: 0 20px;
+    }
+
+    .verify-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 44px 40px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    .verify-card h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+    }
+
+    .verify-card .sub {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 28px;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .input-row input {
+      flex: 1;
+      padding: 14px 18px;
+      border: 2px solid #e8e8f0;
+      border-radius: 12px;
+      font-size: 15px;
+      outline: none;
+      color: #1a1a2e;
+      background: #fafaff;
+      transition: border 0.25s, box-shadow 0.25s;
+    }
+
+    .input-row input:focus {
+      border-color: #6c63ff;
+      box-shadow: 0 0 0 4px rgba(108,99,255,0.1);
+      background: #fff;
+    }
+
+    .input-row button {
+      background: #6c63ff;
+      color: #fff;
+      border: none;
+      padding: 14px 26px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.1s;
+      white-space: nowrap;
+    }
+
+    .input-row button:hover { background: #574fd6; }
+    .input-row button:active { transform: scale(0.97); }
+
+    .hint {
+      font-size: 12px;
+      color: #aaa;
+      margin-bottom: 24px;
+    }
+
+    /* ===== RESULT ===== */
+    #result { display: none; margin-top: 20px; border-radius: 14px; overflow: hidden; }
+
+    .result-success {
+      background: #f0fdf4;
+      border: 1.5px solid #4caf50;
+    }
+
+    .result-error {
+      background: #fff5f5;
+      border: 1.5px solid #f44336;
+      padding: 22px 24px;
+      text-align: center;
+      color: #c62828;
+      font-size: 15px;
+    }
+
+    .result-header {
+      background: #4caf50;
+      color: #fff;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .result-header svg { flex-shrink: 0; }
+
+    .result-body {
+      padding: 22px 24px;
+    }
+
+    .result-body table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .result-body tr {
+      border-bottom: 1px solid #e8f5e9;
+    }
+
+    .result-body tr:last-child { border-bottom: none; }
+
+    .result-body td {
+      padding: 10px 4px;
+      font-size: 14px;
+    }
+
+    .result-body td:first-child {
+      color: #888;
+      width: 140px;
+      font-weight: 500;
+    }
+
+    .result-body td:last-child {
+      color: #1a1a2e;
+      font-weight: 700;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-section {
+      max-width: 900px;
+      margin: 0 auto 70px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .how-section h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #1a1a2e;
+    }
+
+    .steps {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .step {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 24px;
+      flex: 1;
+      min-width: 200px;
+      max-width: 260px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      text-align: center;
+    }
+
+    .step-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, #6c63ff, #a29bfe);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin: 0 auto 16px;
+    }
+
+    .step h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #1a1a2e;
+    }
+
+    .step p {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.6;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #1a1a2e;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+    }
+
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    footer .footer-links a {
+      color: rgba(255,255,255,0.55);
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    footer .footer-links a:hover { color: #fff; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .verify-card { padding: 30px 22px; }
+      .input-row { flex-direction: column; }
+      .input-row button { width: 100%; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <a href="index.html" class="logo">Intern<span>Crowd</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#courses">Courses</a>
+    <a href="index.html#internships">Internships</a>
+    <a href="verify.html" class="active">Verify Certificate</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="badge">🔐 Secure Verification</div>
+  <h1>Certificate Verification</h1>
+  <p>Instantly verify the authenticity of any InternCrowd certificate using your unique Certificate ID.</p>
+</section>
+
+<!-- ===== VERIFY CARD ===== -->
+<div class="card-wrapper">
+  <div class="verify-card">
+    <h2>Enter Certificate ID</h2>
+    <p class="sub">Your Certificate ID is printed at the bottom of your certificate</p>
+
+    <div class="input-row">
+      <input
+        type="text"
+        id="certId"
+        placeholder="e.g. IC-2024-001"
+        onkeypress="if(event.key==='Enter') verifyCertificate()"
+      />
+      <button onclick="verifyCertificate()">Verify Now</button>
+    </div>
+    <p class="hint">* Certificate IDs are not case sensitive</p>
+
+    <div id="result"></div>
+  </div>
+</div>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how-section">
+  <h3>How to Verify?</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-icon">📄</div>
+      <h4>Find Your Certificate</h4>
+      <p>Locate the Certificate ID printed on your InternCrowd certificate document.</p>
+    </div>
+    <div class="step">
+      <div class="step-icon">✏️</div>
+      <h4>Enter the ID</h4>
+      <p>Type or paste your Certificate ID in the input box above and click Verify.</p>
+    </div>
+    <div class="step">
+      <div class="step-icon">✅</div>
+      <h4>Get Results</h4>
+      <p>Instantly see the verified details — name, course, date, and grade.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#courses">Courses</a>
+    <a href="index.html#internships">Internships</a>
+    <a href="verify.html">Verify Certificate</a>
+    <a href="index.html#about">About Us</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <p>© 2026 <a href="index.html" style="color:#a29bfe;">Intern Crowd</a>. All rights reserved.</p>
+</footer>
+
+<script>
+  /* ============================================================
+     🔧 APNE CERTIFICATES YAHAN ADD KARO
+     Format:
+     "CERTIFICATE-ID": {
+       name:   "Student ka naam",
+       course: "Course naam",
+       date:   "Month Year",
+       grade:  "A / A+ / B+"
+     }
+  ============================================================ */
+  const certificates = {
+    "IC-2024-001": {
+      name:   "Rahul Sharma",
+      course: "Web Development",
+      date:   "January 2024",
+      grade:  "A+"
+    },
+    "IC-2024-002": {
+      name:   "Priya Verma",
+      course: "UI/UX Design",
+      date:   "February 2024",
+      grade:  "A"
+    },
+    "IC-2024-003": {
+      name:   "Amit Kumar",
+      course: "Digital Marketing",
+      date:   "March 2024",
+      grade:  "B+"
+    },
+    // Aur IDs neeche isi format mein add karte jao...
+  };
+
+  function verifyCertificate() {
+    const input  = document.getElementById("certId").value.trim().toUpperCase();
+    const result = document.getElementById("result");
+
+    if (!input) {
+      result.style.display = "block";
+      result.className = "result-error";
+      result.innerHTML  = "⚠️ Please enter a Certificate ID before verifying.";
+      return;
+    }
+
+    if (certificates[input]) {
+      const c = certificates[input];
+      result.style.display = "block";
+      result.className = "result-success";
+      result.innerHTML = `
+        <div class="result-header">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          Certificate Verified Successfully!
+        </div>
+        <div class="result-body">
+          <table>
+            <tr><td>Certificate ID</td><td>${input}</td></tr>
+            <tr><td>Student Name</td><td>${c.name}</td></tr>
+            <tr><td>Course</td><td>${c.course}</td></tr>
+            <tr><td>Completion Date</td><td>${c.date}</td></tr>
+            <tr><td>Grade</td><td>${c.grade}</td></tr>
+            <tr><td>Issued By</td><td>InternCrowd</td></tr>
+          </table>
+        </div>
+      `;
+    } else {
+      result.style.display = "block";
+      result.className = "result-error";
+      result.innerHTML = `
+        ❌ <strong>Invalid Certificate ID: "${input}"</strong><br><br>
+        <span style="font-size:13px; color:#e57373;">
+          This ID does not match any record in our database.<br>
+          Please check the ID on your certificate and try again.
+        </span>
+      `;
+    }
+  }
+</script>
+
+</body>
+</html>
