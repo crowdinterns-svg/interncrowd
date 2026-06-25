@@ -93,6 +93,7 @@ async function doVerify() {
     }
 
     const user = docSnap.data();
+    console.log("USER DATA =", user);
 
     if (user.status === "issued") {
         showCertificate(user);
