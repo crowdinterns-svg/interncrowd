@@ -1,1 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills That Matter More Than Your Degree in 2026 — Intern Crowd</title>
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  .blog-page-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 80px 24px;
+  }
+  .blog-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--blue-600);
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 32px;
+    transition: gap 0.2s;
+    text-decoration: none;
+  }
+  .blog-back-btn:hover { gap: 12px; }
+  .blog-back-btn svg { width: 16px; height: 16px; }
+  .blog-banner {
+    width: 100%;
+    height: 180px;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  .blog-banner svg { width: 100%; height: 100%; display: block; }
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--blue-400);
+    margin-bottom: 14px;
+  }
+  .blog-meta svg { width: 13px; height: 13px; }
+  .blog-article h1 {
+    font-size: 28px;
+    line-height: 1.25;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 22px 0;
+    letter-spacing: -0.4px;
+  }
+  .blog-article h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--blue-600);
+    margin: 28px 0 10px 0;
+  }
+  .blog-article p {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: var(--gray-600);
+    margin: 0 0 16px 0;
+  }
+  .blog-article ul {
+    margin: 0 0 16px 0;
+    padding-left: 20px;
+  }
+  .blog-article li {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-600);
+    margin-bottom: 8px;
+  }
+  .blog-article li strong { color: var(--ink); }
+  .blog-cta {
+    margin-top: 36px;
+    padding: 22px 24px;
+    background: var(--blue-50);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .blog-cta p {
+    margin: 0;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+    flex: 1 1 200px;
+  }
+  .blog-cta a {
+    display: inline-flex;
+    align-items: center;
+    background: var(--blue-600);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .blog-cta a:hover { background: var(--blue-700); }
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--blue-100);
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-text { font-size: 18px; font-weight: 800; color: var(--ink); letter-spacing: -0.5px; }
+  .logo-text .crowd { color: var(--blue-600); }
+</style>
+</head>
+body>
+
+<header>
+  <div class="logo">
+    <img src="logo-icon.png" alt="Intern Crowd Logo" style="width:48px;height:48px;object-fit:contain;" />
+    <span class="logo-text">INTERN<span class="crowd">CROWD</span></span>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="courses.html">Courses</a>
+    <a href="internships.html">Internships</a>
+    <a href="mock.html">Mock</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="blog.html" class="active">Blog</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:14px;">
+    <button class="dark-mode-toggle" id="dark-mode-btn" aria-label="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="blog-page-wrap">
+    <a href="index.html#blog" class="blog-back-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 5l-7 7 7 7"/>
+    </svg>
+    Back to Blog
+  </a>
+
+  <div class="blog-banner">
+    <svg viewBox="0 0 720 180" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#10257a"/><stop offset="50%" stop-color="#1a3fd6"/><stop offset="100%" stop-color="#5b8df9"/></linearGradient></defs>
+      <rect width="720" height="180" fill="url(#bg1)"/>
+    </svg>
+  </div>
+
+  <div class="blog-meta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+      <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
+    </svg>
+    4 min read · Skills
+  </div>
+
+  <article class="blog-article">
+    <h1>Skills That Matter More Than Your Degree in 2026</h1>
+
+    <p>Recruiters today are far more interested in what you can actually do than in which college stamped your degree. That shift is good news for students who are willing to build real, visible proof of skill — even before graduating. Here is what that looks like in practice.</p>
+    <h4>1. A portfolio over a transcript</h4>
+    <p>A handful of finished projects you can walk a recruiter through beats a long list of course names every time. Even two or three small, well-explained projects show more than a GPA ever could.</p>
+    <h4>2. Comfort with AI-assisted tools</h4>
+    <p>Knowing how to work alongside AI tools — for coding, writing, research, or design — is quickly becoming a baseline expectation rather than a bonus skill. Companies want people who can use these tools to move faster, not people who avoid them.</p>
+    <h4>3. Communication that holds up under scrutiny</h4>
+    <p>Being able to explain a technical decision clearly, in writing or out loud, is consistently rated by hiring managers as more important than raw technical depth alone.</p>
+    <ul>
+      <li><strong>Weak:</strong> I just know it works, I followed a tutorial</li>
+      <li><strong>Strong:</strong> I chose this approach because it scales better as the data grows, here is the trade-off I considered</li>
+    </ul>
+    <h4>4. Self-directed learning</h4>
+    <p>The half-life of any specific technical skill keeps shrinking. What recruiters are really screening for is whether you can pick up something new quickly when the role demands it — and show evidence that you already have.</p>
+    <p>A degree still opens doors, but it is no longer the only key. Building visible proof of these skills alongside your studies is what actually gets you noticed.</p>
+    <div class="blog-cta">
+      <p>Want to start building real, provable skills today?</p>
+      <a href="index.html#courses">Explore Courses</a>
+    </div>
+
+  </article>
+
+</div>
+
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="logo-icon.png" alt="Intern Crowd Logo" style="width:44px;height:44px;object-fit:contain;" />
+        <span class="footer-logo-text">INTERN<span class="crowd">CROWD</span></span>
+      </div>
+      <p class="footer-tagline">In every student there is a power to change the world. We help you find yours — through real skills, real projects, and real opportunities.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/intern-crowd/" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://www.instagram.com/intern.crowd?igsh=MWV5YmJ0cmlnMXRwaA%3D%3D&utm_source=qr" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@Interncrowd" target="_blank" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#0b1f6b" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </a>
+        <a href="https://t.me/+Y9DlB1TRKmYxOGY9" target="_blank" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </a>
+      </div>
+      <div class="footer-stats">
+        <div class="footer-stat-item"><span class="stat-num">5000+</span><span class="stat-label">Students</span></div>
+        <div class="footer-stat-item"><span class="stat-num">50+</span><span class="stat-label">Programs</span></div>
+        <div class="footer-stat-item"><span class="stat-num">95%</span><span class="stat-label">Satisfaction</span></div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="verify.html">Verify Certificate</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#courses">Web Development</a></li>
+        <li><a href="#courses">Python Programming</a></li>
+        <li><a href="#courses">Java Programming</a></li>
+        <li><a href="#courses">Android Dev</a></li>
+        <li><a href="#courses">AI &amp; Machine Learning</a></li>
+        <li><a href="#courses">Data Analytics</a></li>
+        <li><a href="#courses">Digital Marketing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-newsletter">
+      <h4>Stay Updated</h4>
+      <p>Get the latest internship openings and course launches straight to your inbox. No spam, ever.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="your@email.com" id="footer-email">
+        <button type="button" onclick="var el=document.getElementById('footer-email');if(el.value){this.textContent='Subscribed ✓';el.value='';setTimeout(()=>{this.textContent='Subscribe';},2500);}">Subscribe</button>
+      </div>
+      <div style="margin-top:28px;">
+        <h4 style="font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin:0 0 16px 0;">Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="mailto:hello@interncrowd.in" style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            hello@interncrowd.in
+          </a>
+          <a href="https://interncrowd.in" style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            www.interncrowd.in
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 <a href="#top">Intern Crowd</a>. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#contact">Support</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script type="module" src="certificate-validation.js"></script>
+
+</body>
+</html>
+
 
