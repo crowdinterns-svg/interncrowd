@@ -201,6 +201,8 @@
 }
 </style>
 
+<!-- ---------- SITE FOOTER ---------- -->
+<!-- ===================================================== -->
 <footer class="site-footer">
 
 
@@ -252,7 +254,7 @@
     <div class="footer-col">
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="index.html">Home</a></li>
+         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="internships.html">Internships</a></li>
@@ -309,23 +311,84 @@
 
   <!-- Bottom bar -->
   <div class="footer-bottom">
-    <p>© 2026 <a href="#top">Intern Crowd</a>. All rights reserved.</p>
+    <p>© 2026 <a href="index.html">Intern Crowd</a>. All rights reserved.</p>
     <div class="footer-bottom-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Use</a>
-      <a href="#">Cookie Policy</a>
-      <a href="#contact">Support</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="Terms-and-conditions.html">Terms &amp; Conditions</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="cookie-policy.html">Cookie Policy</a>
     </div>
   </div>
 
+
 </footer>
+
+<!-- ===================================================== -->
+<!-- ---------- BLOG POST READING MODAL ---------- -->
+<!-- ===================================================== -->
+<div class="blog-modal-overlay" id="blog-modal-overlay">
+  <div class="blog-modal" role="dialog" aria-modal="true" aria-labelledby="blog-modal-title">
+    <div class="blog-modal-banner">
+      <button class="blog-modal-close" id="blog-modal-close" aria-label="Close article">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <svg viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <defs><linearGradient id="modalbg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#dce8fd"/><stop offset="100%" stop-color="#b3ccf9"/></linearGradient></defs>
+        <rect width="680" height="120" fill="url(#modalbg1)"/>
+        <rect x="300" y="20" width="64" height="84" rx="6" fill="#ffffff"/>
+        <rect x="300" y="20" width="64" height="84" rx="6" fill="none" stroke="#9cc0fb" stroke-width="1.5"/>
+        <circle cx="332" cy="38" r="7" fill="#dce8fd"/>
+        <rect x="310" y="53" width="44" height="4" rx="2" fill="#9cc0fb"/>
+        <rect x="310" y="62" width="36" height="4" rx="2" fill="#c9d9fb"/>
+        <rect x="310" y="71" width="40" height="4" rx="2" fill="#c9d9fb"/>
+        <rect x="310" y="84" width="44" height="4" rx="2" fill="#eef3fe"/>
+        <circle cx="356" cy="80" r="13" fill="#1A3FD6"/>
+        <path d="M351 80 L354.5 84 L361.5 75" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="blog-modal-body" id="blog-modal-body">
+      <!-- Article content injected here by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- ---------- TUTORIAL VIEWER (Python course) ---------- -->
+<!-- ===================================================== -->
+<div class="tutorial-overlay" id="tutorial-overlay">
+  <div class="tutorial-panel" role="dialog" aria-modal="true" aria-labelledby="tutorial-content-title">
+    <div class="tutorial-topbar">
+      <div class="tutorial-brand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+        <span id="tutorial-brand-text">Intern Crowd — Python Tutorial</span>
+      </div>
+      <div class="tutorial-topbar-actions">
+        <a class="tutorial-certify-btn" href="https://forms.gle/98LuBvUAUaLqQ73y7" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M8.5 13.5 7 21l5-3 5 3-1.5-7.5"/></svg>
+          Get Certified — Click Now
+        </a>
+        <button class="tutorial-close" id="tutorial-close" aria-label="Close tutorial">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="tutorial-body">
+      <div class="tutorial-sidebar" id="tutorial-sidebar">
+        <div class="tutorial-sidebar-label" id="tutorial-sidebar-label">PYTHON TUTORIAL</div>
+        <!-- nav items injected by JS -->
+      </div>
+      <div class="tutorial-content" id="tutorial-content">
+        <!-- topic content injected by JS -->
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="main.js"></script>
 <script type="module" src="certificate-validation.js"></script>
 
 </body>
 </html>
-
 
 <script>
 // Auto-open this specific course when page loads
