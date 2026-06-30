@@ -1,0 +1,327 @@
+/* ===================================================== */
+/* POLICY / LEGAL PAGES — Intern Crowd                    */
+/* ===================================================== */
+
+.ic-policy-wrap{
+  max-width:880px;
+  margin:0 auto;
+  padding:64px 24px 96px 24px;
+}
+
+.ic-policy-wrap .eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  color:var(--blue-600);
+  background:var(--blue-50);
+  border:1px solid var(--blue-100);
+  padding:6px 14px;
+  border-radius:999px;
+  margin-bottom:18px;
+}
+
+.ic-policy-wrap h1{
+  font-size:40px;
+  line-height:1.15;
+  margin:0 0 10px 0;
+  color:var(--ink);
+  letter-spacing:-0.5px;
+}
+
+.ic-policy-wrap .updated{
+  font-size:14px;
+  color:var(--gray-600);
+  margin:0 0 8px 0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.ic-policy-wrap .intro-lead{
+  font-size:17px;
+  line-height:1.7;
+  color:var(--gray-600);
+  margin:22px 0 36px 0;
+  padding:20px 22px;
+  background:linear-gradient(135deg, var(--blue-50) 0%, #ffffff 100%);
+  border-left:4px solid var(--blue-600);
+  border-radius:10px;
+}
+
+/* ---- Table of contents ---- */
+.ic-toc{
+  background:var(--white);
+  border:1px solid rgba(26,63,214,0.1);
+  border-radius:16px;
+  padding:24px 26px;
+  margin:0 0 40px 0;
+  box-shadow:0 8px 30px -12px rgba(20,40,120,0.12);
+}
+.ic-toc p{
+  margin:0 0 14px 0;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  color:var(--blue-600);
+}
+.ic-toc ol{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px 24px;
+  counter-reset:toc;
+}
+.ic-toc li{
+  counter-increment:toc;
+  font-size:14.5px;
+}
+.ic-toc li a{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  padding:8px 10px;
+  border-radius:8px;
+  color:var(--ink);
+  transition:background 0.18s ease, color 0.18s ease, padding-left 0.18s ease;
+}
+.ic-toc li a::before{
+  content:counter(toc);
+  flex:0 0 auto;
+  width:22px;
+  height:22px;
+  border-radius:6px;
+  background:var(--blue-50);
+  color:var(--blue-600);
+  font-size:11.5px;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.ic-toc li a:hover{
+  background:var(--blue-50);
+  color:var(--blue-600);
+  padding-left:14px;
+}
+
+/* ---- Section cards ---- */
+.ic-policy-wrap section.ic-section{
+  scroll-margin-top:96px;
+  margin:0 0 14px 0;
+  padding:30px 28px;
+  background:var(--white);
+  border:1px solid rgba(26,63,214,0.08);
+  border-radius:16px;
+}
+
+.ic-policy-wrap h2{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:21px;
+  color:var(--ink);
+  margin:0 0 14px 0;
+  letter-spacing:-0.2px;
+}
+.ic-policy-wrap h2 .num{
+  flex:0 0 auto;
+  width:32px;
+  height:32px;
+  border-radius:9px;
+  background:linear-gradient(135deg, var(--blue-600), var(--blue-500));
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 16px -4px rgba(26,63,214,0.45);
+}
+
+.ic-policy-wrap h3{
+  font-size:16px;
+  color:var(--blue-700);
+  margin:22px 0 8px 0;
+}
+
+.ic-policy-wrap p{
+  font-size:15px;
+  line-height:1.75;
+  color:var(--gray-600);
+  margin:0 0 14px 0;
+}
+.ic-policy-wrap p:last-child{margin-bottom:0;}
+
+.ic-policy-wrap ul{
+  margin:0 0 14px 0;
+  padding:0;
+  list-style:none;
+}
+.ic-policy-wrap ul:last-child{margin-bottom:0;}
+.ic-policy-wrap ul li{
+  position:relative;
+  font-size:15px;
+  line-height:1.7;
+  color:var(--gray-600);
+  padding:0 0 10px 26px;
+}
+.ic-policy-wrap ul li:last-child{padding-bottom:0;}
+.ic-policy-wrap ul li::before{
+  content:"";
+  position:absolute;
+  left:2px;
+  top:8px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--blue-500);
+}
+.ic-policy-wrap ul li strong{color:var(--ink);}
+
+.ic-policy-wrap .inline-link{
+  color:var(--blue-600);
+  font-weight:600;
+  border-bottom:1px solid var(--blue-300);
+  transition:color 0.18s ease, border-color 0.18s ease;
+}
+.ic-policy-wrap .inline-link:hover{
+  color:var(--blue-700);
+  border-color:var(--blue-700);
+}
+
+/* ---- Callout boxes ---- */
+.ic-callout{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  margin:6px 0 16px 0;
+  padding:16px 18px;
+  border-radius:12px;
+  font-size:14.5px;
+  line-height:1.65;
+}
+.ic-callout svg{flex:0 0 auto;width:20px;height:20px;margin-top:2px;}
+.ic-callout.info{background:var(--blue-50); color:var(--blue-800); border:1px solid var(--blue-100);}
+.ic-callout.warn{background:#fff6e6; color:#7a5200; border:1px solid #ffe1a3;}
+.ic-callout.future{background:#f1eefe; color:#4a2e9c; border:1px solid #ddd2fb;}
+
+/* ---- Data table used in "Information We Collect" ---- */
+.ic-policy-wrap table{
+  width:100%;
+  border-collapse:collapse;
+  margin:6px 0 16px 0;
+  font-size:14px;
+}
+.ic-policy-wrap table th{
+  text-align:left;
+  background:var(--blue-50);
+  color:var(--blue-700);
+  font-weight:700;
+  padding:10px 14px;
+  border-bottom:2px solid var(--blue-100);
+}
+.ic-policy-wrap table td{
+  padding:10px 14px;
+  border-bottom:1px solid #edf1fb;
+  color:var(--gray-600);
+  vertical-align:top;
+}
+.ic-policy-wrap table tr:last-child td{border-bottom:none;}
+
+/* ---- Pill badges (e.g. service tags) ---- */
+.ic-pill-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:6px 0 16px 0;
+}
+.ic-pill{
+  font-size:12.5px;
+  font-weight:600;
+  color:var(--blue-700);
+  background:var(--blue-50);
+  border:1px solid var(--blue-100);
+  padding:6px 12px;
+  border-radius:999px;
+}
+
+/* ---- Contact card ---- */
+.ic-contact-card{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:8px;
+}
+.ic-contact-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  background:var(--blue-50);
+  border-radius:12px;
+  font-size:14.5px;
+  color:var(--ink);
+}
+.ic-contact-item svg{flex:0 0 auto;width:18px;height:18px;color:var(--blue-600);}
+
+/* ---- Back to top ---- */
+.ic-back-top{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:36px;
+  font-size:13.5px;
+  font-weight:600;
+  color:var(--blue-600);
+}
+.ic-back-top svg{width:14px;height:14px;}
+
+@media (max-width:720px){
+  .ic-policy-wrap{padding:40px 16px 72px 16px;}
+  .ic-policy-wrap h1{font-size:30px;}
+  .ic-toc ol{grid-template-columns:1fr;}
+  .ic-policy-wrap section.ic-section{padding:22px 18px;}
+  .ic-contact-card{grid-template-columns:1fr;}
+}
+
+/* ---- Dark mode ---- */
+html.dark .ic-policy-wrap .eyebrow{
+  background:rgba(91,141,249,0.12);
+  border-color:rgba(91,141,249,0.25);
+  color:#7aadff;
+}
+html.dark .ic-policy-wrap h1,
+html.dark .ic-policy-wrap h2,
+html.dark .ic-policy-wrap .ic-contact-item{color:#e0e8ff;}
+html.dark .ic-policy-wrap h3{color:#9db8ff;}
+html.dark .ic-policy-wrap .updated,
+html.dark .ic-policy-wrap p,
+html.dark .ic-policy-wrap ul li{color:#9aaacb;}
+html.dark .ic-policy-wrap ul li strong{color:#dbe3ff;}
+html.dark .ic-policy-wrap .intro-lead{
+  background:linear-gradient(135deg, rgba(91,141,249,0.1) 0%, rgba(255,255,255,0.02) 100%);
+  border-left-color:#5b8df9;
+  color:#b9c5e8;
+}
+html.dark .ic-toc,
+html.dark .ic-policy-wrap section.ic-section{
+  background:rgba(255,255,255,0.04);
+  border-color:rgba(255,255,255,0.08);
+}
+html.dark .ic-toc li a{color:#dbe3ff;}
+html.dark .ic-toc li a:hover{background:rgba(91,141,249,0.14); color:#7aadff;}
+html.dark .ic-toc li a::before{background:rgba(91,141,249,0.16); color:#7aadff;}
+html.dark .ic-policy-wrap table th{background:rgba(91,141,249,0.12); color:#9db8ff; border-bottom-color:rgba(91,141,249,0.2);}
+html.dark .ic-policy-wrap table td{color:#9aaacb; border-bottom-color:rgba(255,255,255,0.06);}
+html.dark .ic-callout.info{background:rgba(91,141,249,0.1); color:#bcd0ff; border-color:rgba(91,141,249,0.25);}
+html.dark .ic-callout.warn{background:rgba(255,200,90,0.08); color:#ffd98a; border-color:rgba(255,200,90,0.25);}
+html.dark .ic-callout.future{background:rgba(150,120,250,0.1); color:#d3c6ff; border-color:rgba(150,120,250,0.25);}
+html.dark .ic-pill{background:rgba(91,141,249,0.12); border-color:rgba(91,141,249,0.25); color:#9db8ff;}
+html.dark .ic-contact-item{background:rgba(91,141,249,0.1);}
