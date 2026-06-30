@@ -1,1 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intern Crowd — Python Programming</title>
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="policy-style.css">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J45L3QT1N6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-J45L3QT1N6');
+</script>
+</head>
+<body>
 
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="logo-icon.png" alt="Intern Crowd Logo" style="width:48px;height:48px;object-fit:contain;" />
+      <span class="logo-text">INTERN<span class="crowd">CROWD</span></span>
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="courses.html" class="active">Courses</a>
+      <a href="internships.html">Internships</a>
+      <a href="mock.html">Mock</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:14px;">
+    <button class="dark-mode-toggle" id="dark-mode-btn" aria-label="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    </div>
+  </header>
+
+<div class="page" id="top" style="display:flex;flex-direction:row;align-items:stretch;min-height:calc(100vh - 64px);padding:0;margin:0;">
+
+  <!-- LEFT SIDEBAR -->
+  <aside id="course-sidebar" style="
+    width: 260px;
+    min-width: 220px;
+    max-width: 280px;
+    flex-shrink: 0;
+    background: var(--bg-card, #f0f3fc);
+    border-right: 1px solid var(--border, #dde2f0);
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 64px;
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+  ">
+    <!-- Course Info accordion -->
+    <details open style="border-bottom:1px solid var(--border,#dde2f0);">
+      <summary style="
+        list-style:none;cursor:pointer;
+        padding:18px 20px;
+        font-size:13px;font-weight:800;
+        color:var(--text,#0b1f6b);
+        display:flex;align-items:center;justify-content:space-between;
+        user-select:none;
+      ">
+        <span>Python Programming Course</span>
+        <svg class="details-arrow" viewBox="0 0 24 24" fill="none" width="16" height="16" style="transition:transform 0.2s;flex-shrink:0;">
+          <path d="M6 9l6 6 6-6" stroke="#1A3FD6" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </summary>
+      <div style="padding:0 20px 18px 20px;">
+        <p style="font-size:13px;line-height:1.65;color:var(--text-muted,#6677aa);margin:0;">Master Python through automation, scripting, and real beginner-to-advanced projects.</p>
+      </div>
+    </details>
+
+    <!-- Nav label -->
+    <div id="tutorial-sidebar-label" style="padding:16px 20px 10px 20px;font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--text-muted,#8899bb);text-transform:uppercase;">COURSE TOPICS</div>
+
+    <!-- Nav items injected by JS -->
+    <div id="tutorial-sidebar" style="flex:1;"></div>
+  </aside>
+
+  <!-- RIGHT MAIN CONTENT -->
+  <div style="flex:1;display:flex;flex-direction:column;min-width:0;">
+
+    <!-- Top action bar -->
+    <div style="
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:10px 32px;
+      background:var(--bg-card,#f8f9ff);
+      border-bottom:1px solid var(--border,#e5e7f0);
+      position:sticky;
+      top:64px;
+      z-index:80;
+      flex-wrap:wrap;
+      gap:10px;
+    ">
+      <a href="courses.html" style="display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#1A3FD6;text-decoration:none;">
+        <svg viewBox="0 0 24 24" fill="none" width="15" height="15"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to All Courses
+      </a>
+      <span style="
+        font-size:12px;font-weight:700;letter-spacing:1px;
+        color:#1A3FD6;background:rgba(26,63,214,0.08);
+        padding:6px 14px;border-radius:20px;
+        display:inline-flex;align-items:center;gap:6px;
+      ">
+        <svg viewBox="0 0 24 24" fill="#1A3FD6" width="12" height="12"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+        BEGINNER FRIENDLY
+      </span>
+      <a class="tutorial-certify-btn" href="https://forms.gle/98LuBvUAUaLqQ73y7" target="_blank" rel="noopener" style="
+        display:inline-flex;align-items:center;gap:8px;
+        background:#1A3FD6;color:#fff;font-size:13px;font-weight:700;
+        padding:9px 20px;border-radius:8px;text-decoration:none;
+        letter-spacing:0.3px;transition:background 0.2s;
+      ">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M8.5 13.5 7 21l5-3 5 3-1.5-7.5"/></svg>
+        Get Certified — Click Now
+      </a>
+    </div>
+
+    <!-- Tutorial content -->
+    <div id="tutorial-content" style="flex:1;padding:40px 48px;max-width:820px;overflow-y:auto;">
+      <!-- content injected by JS -->
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Responsive styles -->
+<style>
+
+  .tutorial-footnav {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 44px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border, #e5e7f0);
+  }
+  .tnav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 2px solid #1A3FD6;
+    background: #fff;
+    color: #1A3FD6;
+    transition: all 0.18s;
+    letter-spacing: 0.2px;
+  }
+  .tnav-btn:hover:not(:disabled) {
+    background: #1A3FD6;
+    color: #fff;
+  }
+  .tnav-btn:hover:not(:disabled) svg { stroke: #fff; }
+  .tnav-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    border-color: #aab;
+    color: #aab;
+  }
+  .tnav-btn svg { stroke: currentColor; transition: stroke 0.18s; }
+  .tnav-next { margin-left: auto; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .details-arrow { transform: rotate(180deg); }
+
+  @media (max-width: 768px) {
+  #top.page { flex-direction: column !important; }
+  #course-sidebar {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: unset !important;
+    position: static !important;
+    height: auto !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border, #dde2f0) !important;
+  }
+  #tutorial-sidebar { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 16px 16px 16px; }
+  #tutorial-sidebar .tutorial-nav-item { font-size: 12px !important; padding: 6px 12px !important; }
+  #tutorial-content { padding: 24px 20px !important; }
+  .tutorial-certify-btn { font-size: 12px !important; padding: 8px 14px !important; }
+}
+</style>
+
+<footer class="site-footer">
+
+
+  <div class="footer-top">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="logo-icon.png" alt="Intern Crowd Logo" style="width:44px;height:44px;object-fit:contain;" />
+        <span class="footer-logo-text">INTERN<span class="crowd">CROWD</span></span>
+      </div>
+      <p class="footer-tagline">In every student there is a power to change the world. We help you find yours — through real skills, real projects, and real opportunities.</p>
+      <div class="footer-social">
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/company/intern-crowd/" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/intern.crowd?igsh=MWV5YmJ0cmlnMXRwaA%3D%3D&utm_source=qr" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@Interncrowd" target="_blank" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#0b1f6b" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </a>
+        <!-- Telegram -->
+        <a href="https://t.me/+Y9DlB1TRKmYxOGY9" target="_blank" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </a>
+      </div>
+
+      <div class="footer-stats">
+        <div class="footer-stat-item">
+          <span class="stat-num">5000+</span>
+          <span class="stat-label">Students</span>
+        </div>
+        <div class="footer-stat-item">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">Programs</span>
+        </div>
+        <div class="footer-stat-item">
+          <span class="stat-num">95%</span>
+          <span class="stat-label">Satisfaction</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="verify.html">Verify Certificate</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- Programs -->
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#courses">Web Development</a></li>
+        <li><a href="#courses">Python Programming</a></li>
+        <li><a href="#courses">Java Programming</a></li>
+        <li><a href="#courses">Android Dev</a></li>
+        <li><a href="#courses">AI &amp; Machine Learning</a></li>
+        <li><a href="#courses">Data Analytics</a></li>
+        <li><a href="#courses">Digital Marketing</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-col footer-newsletter">
+      <h4>Stay Updated</h4>
+      <p>Get the latest internship openings and course launches straight to your inbox. No spam, ever.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="your@email.com" id="footer-email">
+        <button type="button" onclick="
+          var el=document.getElementById('footer-email');
+          if(el.value){this.textContent='Subscribed ✓';el.value='';setTimeout(()=>{this.textContent='Subscribe';},2500);}
+        ">Subscribe</button>
+      </div>
+
+      <div style="margin-top:28px;">
+        <h4 style="font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin:0 0 16px 0;">Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="mailto:hello@interncrowd.in" style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            hello@interncrowd.in
+          </a>
+          <a href="https://interncrowd.in" style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            www.interncrowd.in
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <p>© 2026 <a href="#top">Intern Crowd</a>. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#contact">Support</a>
+    </div>
+  </div>
+
+</footer>
+
+<script src="main.js"></script>
+<script type="module" src="certificate-validation.js"></script>
+
+</body>
+</html>
+
+
+<script>
+// Auto-open this specific course when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  // Override the tutorial open behavior — render inline instead of overlay
+  var COURSE_KEY = 'python';
+
+  // Inline render (no overlay needed on dedicated page)
+  var sidebar = document.getElementById('tutorial-sidebar');
+  var content = document.getElementById('tutorial-content');
+  var sidebarLabel = document.getElementById('tutorial-sidebar-label');
+  if (!sidebar || !content) return;
+});
+</script>
+<script>
+// Inline tutorial renderer for dedicated course page
+(function(){
+  var COURSE_KEY = 'python';
+  var sidebar = document.getElementById('tutorial-sidebar');
+  var content = document.getElementById('tutorial-content');
+  var sidebarLabel = document.getElementById('tutorial-sidebar-label');
+  if (!sidebar || !content) return;
+
+  var currentIndex = 0;
+
+  // Load coursesData from main.js by re-declaring inline
+  // (We extract and embed just the needed course data below)
+})();
+</script>
+<script src="main.js"></script>
+<script>
+// After main.js loads, trigger the inline render
+(function(){
+  var COURSE_KEY = 'python';
+  // Wait for DOM + main.js to be ready
+  // main.js attaches tutorial behavior to .tutorial-overlay
+  // We instead render directly into the page sidebar/content elements
+  // by calling openTutorial if it's exposed, or by reading coursesData directly.
+  // Since main.js uses IIFEs, we re-implement the renderer here for the inline page.
+
+  var sidebar = document.getElementById('tutorial-sidebar');
+  var content = document.getElementById('tutorial-content');
+  var sidebarLabel = document.getElementById('tutorial-sidebar-label');
+  if (!sidebar || !content) return;
+
+  // ---- Course topics data (same as in main.js) ----
+  var coursesData = window.__interncrowdCoursesData || null;
+  // If main.js exposes it, use it. Otherwise embed a minimal stub.
+  // We'll embed full data via a separate inline script below.
+})();
+</script>
+<script src="course-data.js"></script>
+<script>
+(function(){
+  var COURSE_KEY = 'python';
+  var sidebar = document.getElementById('tutorial-sidebar');
+  var content = document.getElementById('tutorial-content');
+  var sidebarLabel = document.getElementById('tutorial-sidebar-label');
+  if (!sidebar || !content) return;
+
+  var data = window.__IC_COURSES && window.__IC_COURSES[COURSE_KEY];
+  if (!data) return;
+
+  if (sidebarLabel) sidebarLabel.textContent = data.sidebarLabel;
+
+  var currentIndex = 0;
+
+  function renderSidebar() {
+    sidebar.querySelectorAll('.tutorial-nav-item').forEach(function(el) { el.remove(); });
+    data.topics.forEach(function(topic, i) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'tutorial-nav-item' + (i === currentIndex ? ' active' : '');
+      btn.textContent = topic.label;
+      btn.addEventListener('click', function() {
+        currentIndex = i;
+        renderAll();
+      });
+      sidebar.appendChild(btn);
+    });
+  }
+
+  function renderContent() {
+    var topic = data.topics[currentIndex];
+    content.innerHTML =
+      '<h2 id="tutorial-content-title">' + topic.title + '</h2>'
+      + topic.html
+            + '<div class="tutorial-footnav">'
+      + '<button type="button" class="tnav-btn tnav-prev" id="tutorial-prev"' + (currentIndex === 0 ? ' disabled' : '') + '>'
+      + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>'
+      + '<span>Previous</span>'
+      + '</button>'
+      + '<button type="button" class="tnav-btn tnav-next" id="tutorial-next"' + (currentIndex === data.topics.length - 1 ? ' disabled' : '') + '>'
+      + '<span>Next</span>'
+      + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 12h14M13 5l7 7-7 7"/></svg>'
+      + '</button>'
+      + '</div>';
+    content.scrollTop = 0;
+
+    var prevBtn = document.getElementById('tutorial-prev');
+    var nextBtn = document.getElementById('tutorial-next');
+    if (prevBtn) prevBtn.addEventListener('click', function() {
+      if (currentIndex > 0) { currentIndex--; renderAll(); }
+    });
+    if (nextBtn) nextBtn.addEventListener('click', function() {
+      if (currentIndex < data.topics.length - 1) { currentIndex++; renderAll(); }
+    });
+  }
+
+  function renderAll() {
+    renderSidebar();
+    renderContent();
+  }
+
+  renderAll();
+})();
+</script>
+<script type="module" src="certificate-validation.js"></script>
+
+</body>
+</html>
