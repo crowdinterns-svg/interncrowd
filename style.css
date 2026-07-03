@@ -991,6 +991,56 @@
     flex-shrink:0;
   }
 
+  .blog-author-line{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--gray-600);
+    margin-bottom:10px;
+  }
+  .blog-author-line .dot{
+    width:3px; height:3px; border-radius:50%;
+    background:var(--blue-300);
+    flex-shrink:0;
+  }
+  .blog-author-line .author-name{color:var(--blue-600);}
+
+  .blog-byline{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:18px 0 10px 0;
+  }
+  .blog-byline img{
+    width:44px; height:44px;
+    border-radius:50%;
+    object-fit:cover;
+    flex-shrink:0;
+  }
+  .blog-byline .byline-info{line-height:1.35;}
+  .blog-byline .byline-name{font-weight:700; color:var(--ink); font-size:14.5px;}
+  .blog-byline .byline-date{font-size:12.5px; color:var(--gray-600);}
+
+  .author-bio-box{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    background:var(--gray-50, #f7f9fc);
+    border-radius:16px;
+    padding:20px 22px;
+    margin-top:40px;
+  }
+  .author-bio-box img{
+    width:64px; height:64px;
+    border-radius:50%;
+    object-fit:cover;
+    flex-shrink:0;
+  }
+  .author-bio-box .byline-name{font-weight:700; color:var(--ink); font-size:15.5px; margin-bottom:4px;}
+  .author-bio-box p{font-size:13.5px; line-height:1.6; color:var(--gray-600); margin:0;}
+
   .blog-card h3{
     font-size:16.5px; font-weight:700; color:var(--ink);
     margin:0 0 8px 0;
@@ -2669,3 +2719,69 @@
   html.dark .blog-modal-cta p { color: #9aaacb; }
 
   html.dark .hamburger span { background: #c5d5ff; }
+
+/* ---------- Live blog views + likes ---------- */
+.blog-engagement {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: -6px 0 26px 0;
+  flex-wrap: wrap;
+}
+.blog-engagement .views-count {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--blue-400);
+}
+.blog-engagement .views-count svg { width: 15px; height: 15px; flex-shrink: 0; }
+.like-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #fff;
+  border: 1.5px solid var(--blue-100);
+  padding: 6px 15px;
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--blue-400);
+  font-weight: 700;
+  font-size: 13.5px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+.like-btn svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  transition: all 0.2s ease;
+}
+.like-btn:hover { border-color: var(--blue-600); color: var(--blue-600); }
+.like-btn:active { transform: scale(0.94); }
+.like-btn.liked { color: #e6294b; border-color: #ffd3dc; background: #fff1f4; }
+.like-btn.liked svg { fill: #e6294b; stroke: #e6294b; }
+.like-btn.liked:hover { color: #e6294b; border-color: #ffb3c1; }
+
+html.dark .blog-engagement .views-count { color: #9aaacb; }
+html.dark .like-btn { background: #131d3a; border-color: #2a3d65; color: #9aaacb; }
+html.dark .like-btn:hover { border-color: var(--blue-400); color: var(--blue-400); }
+html.dark .like-btn.liked { color: #ff6b85; border-color: #5a2233; background: #2a1420; }
+html.dark .like-btn.liked svg { fill: #ff6b85; stroke: #ff6b85; }
+
+/* Blog listing card mini stats */
+.blog-card-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue-400);
+  margin-top: 8px;
+}
+.blog-card-stats span { display: flex; align-items: center; gap: 4px; }
+.blog-card-stats svg { width: 13px; height: 13px; }
+html.dark .blog-card-stats { color: #9aaacb; }
