@@ -14,7 +14,7 @@ const firebaseConfig = {
 };
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-const db = getDatabase(app);
+const db = getDatabase(app, "https://intern-crowd-2ed57-default-rtdb.asia-southeast1.firebasedatabase.app");
 
 function getSlug() {
   const path = window.location.pathname;
