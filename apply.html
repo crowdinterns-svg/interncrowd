@@ -58,13 +58,6 @@
   #top .page-hero{padding-top:28px;padding-bottom:20px;}
   .apply-wrap{padding-top:20px;}
 
-  /* File upload field */
-  .apply-file-wrap{
-    display:flex;align-items:center;gap:10px;width:100%;padding:10px 14px;border-radius:10px;
-    border:1.5px dashed var(--blue-100);background:var(--blue-50);cursor:pointer;transition:border-color .15s;
-  }
-  .apply-file-wrap:hover{border-color:var(--blue-500);}
-  .apply-file-wrap input[type="file"]{flex:1;font-size:13.5px;color:var(--ink);cursor:pointer;}
   .apply-file-hint{font-size:12px;color:var(--gray-600);margin-top:6px;}
 
   /* WhatsApp mandatory join box */
@@ -202,12 +195,9 @@
         </div>
 
         <div class="apply-field">
-          <label for="apply-resume">Upload Resume</label>
-          <div class="apply-file-wrap">
-            <input type="file" id="apply-resume" accept=".pdf,.doc,.docx">
-          </div>
-          <p class="apply-file-hint">PDF or Word file, max 5MB (optional). You can also just paste a Drive/LinkedIn link below.</p>
-          <input type="url" id="apply-resume-link" placeholder="Or paste Google Drive / LinkedIn URL (optional)" style="margin-top:8px;">
+          <label for="apply-resume-link">Resume Link <span class="req">*</span></label>
+          <input type="url" id="apply-resume-link" required placeholder="Paste Google Drive / LinkedIn / any resume URL">
+          <p class="apply-file-hint">Paste a shareable Google Drive link, LinkedIn profile, or any link to your resume. Make sure sharing is set to "Anyone with the link can view".</p>
         </div>
 
         <div class="apply-field">
@@ -431,7 +421,6 @@
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
   import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-  import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
   // Same Firebase project already used by certificate-validation.js
   const firebaseConfig = {
@@ -446,7 +435,6 @@
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  const storage = getStorage(app);
 
   // Pre-fill track from ?track= query param (set by "Apply Now" buttons)
   const params = new URLSearchParams(window.location.search);
@@ -480,8 +468,6 @@
       return; // silently drop
     }
 
-    const resumeFileInput = document.getElementById('apply-resume');
-    const resumeFile = resumeFileInput.files && resumeFileInput.files[0];
     const waConfirmed = document.getElementById('apply-wa-confirm').checked;
 
     const data = {
@@ -496,7 +482,7 @@
       message: document.getElementById('apply-message').value.trim(),
     };
 
-    if (!data.track || !data.name || !data.email || !data.phone || !data.college) {
+    if (!data.track || !data.name || !data.email || !data.phone || !data.college || !data.resumeLink) {
       showMsg('Please fill in all required fields.', 'error');
       return;
     }
@@ -506,10 +492,6 @@
     }
     if (!isValidPhone(data.phone)) {
       showMsg('Please enter a valid phone number.', 'error');
-      return;
-    }
-    if (resumeFile && resumeFile.size > 5 * 1024 * 1024) {
-      showMsg('Resume file is too large. Please upload a file under 5MB.', 'error');
       return;
     }
     if (!waConfirmed) {
@@ -522,21 +504,8 @@
     submitText.textContent = 'Submitting...';
 
     try {
-      // Upload resume file to Firebase Storage (if provided)
-      let resumeFileUrl = '';
-      if (resumeFile) {
-        submitText.textContent = 'Uploading resume...';
-        const safeName = resumeFile.name.replace(/[^a-zA-Z0-9.\-_]/g, '_');
-        const storagePath = `resumes/${Date.now()}_${safeName}`;
-        const fileRef = ref(storage, storagePath);
-        await uploadBytes(fileRef, resumeFile);
-        resumeFileUrl = await getDownloadURL(fileRef);
-        submitText.textContent = 'Submitting...';
-      }
-
       await addDoc(collection(db, 'internshipApplications'), {
         ...data,
-        resumeFileUrl,
         status: 'pending',
         submittedAt: serverTimestamp(),
         source: 'interncrowd.in/apply.html',
