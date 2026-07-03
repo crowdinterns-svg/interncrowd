@@ -195,8 +195,8 @@
         </div>
 
         <div class="apply-field">
-          <label for="apply-resume-link">Resume Link <span class="req">*</span></label>
-          <input type="url" id="apply-resume-link" required placeholder="Paste Google Drive / LinkedIn / any resume URL">
+          <label for="apply-resume-link">Resume Link</label>
+          <input type="url" id="apply-resume-link" placeholder="Paste Google Drive / LinkedIn / any resume URL (optional)">
           <p class="apply-file-hint">Paste a shareable Google Drive link, LinkedIn profile, or any link to your resume. Make sure sharing is set to "Anyone with the link can view".</p>
         </div>
 
@@ -482,7 +482,7 @@
       message: document.getElementById('apply-message').value.trim(),
     };
 
-    if (!data.track || !data.name || !data.email || !data.phone || !data.college || !data.resumeLink) {
+    if (!data.track || !data.name || !data.email || !data.phone || !data.college) {
       showMsg('Please fill in all required fields.', 'error');
       return;
     }
