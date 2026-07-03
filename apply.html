@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply for an Internship — Intern Crowd</title>
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="policy-style.css">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J45L3QT1N6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J45L3QT1N6');
+</script>
+
+<style>
+  .apply-wrap{max-width:680px;margin:0 auto;padding:56px 20px 100px;}
+  .apply-card{background:var(--white);border-radius:20px;padding:40px;box-shadow:0 10px 40px rgba(11,31,107,0.08);}
+  .apply-card h2{margin:0 0 6px;font-size:26px;color:var(--ink);}
+  .apply-card .apply-sub{color:var(--gray-600);margin:0 0 28px;font-size:15px;}
+  .apply-field{margin-bottom:18px;}
+  .apply-field label{display:block;font-size:13px;font-weight:700;color:var(--blue-900);margin-bottom:6px;letter-spacing:.2px;}
+  .apply-field .req{color:#e0455a;}
+  .apply-field input,
+  .apply-field select,
+  .apply-field textarea{
+    width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--blue-100);
+    font-family:inherit;font-size:14.5px;color:var(--ink);background:var(--blue-50);
+    transition:border-color .15s, background .15s;
+  }
+  .apply-field input:focus,
+  .apply-field select:focus,
+  .apply-field textarea:focus{outline:none;border-color:var(--blue-500);background:var(--white);}
+  .apply-field textarea{resize:vertical;min-height:90px;}
+  .apply-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:560px){.apply-row{grid-template-columns:1fr;}}
+  .apply-hp{position:absolute;left:-9999px;opacity:0;height:0;width:0;overflow:hidden;}
+  .apply-submit-btn{
+    width:100%;padding:14px 20px;border:none;border-radius:12px;background:var(--blue-600);
+    color:#fff;font-size:15.5px;font-weight:700;cursor:pointer;display:flex;align-items:center;
+    justify-content:center;gap:8px;transition:background .15s, transform .1s;
+  }
+  .apply-submit-btn:hover{background:var(--blue-700);}
+  .apply-submit-btn:disabled{opacity:.65;cursor:not-allowed;}
+  .apply-msg{margin-top:16px;padding:14px 16px;border-radius:10px;font-size:14px;display:none;}
+  .apply-msg.show{display:block;}
+  .apply-msg.success{background:#e6f7ee;color:#116136;border:1px solid #b7e6cc;}
+  .apply-msg.error{background:#fdeaec;color:#9c1f30;border:1px solid #f5c1c9;}
+  .apply-spinner{width:16px;height:16px;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:apply-spin .7s linear infinite;display:none;}
+  .apply-spinner.show{display:inline-block;}
+  @keyframes apply-spin{to{transform:rotate(360deg);}}
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="logo-icon.png" alt="Intern Crowd Logo" style="width:48px;height:48px;object-fit:contain;" />
+      <span class="logo-text">INTERN<span class="crowd">CROWD</span></span>
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="courses.html">Courses</a>
+      <a href="internships.html" class="active">Internships</a>
+      <a href="mock.html">Mock</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:14px;">
+    <button class="dark-mode-toggle" id="dark-mode-btn" aria-label="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    </div>
+  </header>
+
+<div class="page" id="top">
+  <section class="page-hero">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="#1A3FD6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+      APPLICATION FORM
+    </span>
+    <h1>Apply for your <span class="accent">internship.</span></h1>
+    <p>Fill in your details below. Our team reviews every application and reaches out within 2–3 working days.</p>
+  </section>
+
+  <div class="apply-wrap">
+    <div class="apply-card">
+      <h2>Internship Application</h2>
+      <p class="apply-sub">All fields marked <span class="req">*</span> are required.</p>
+
+      <form id="apply-form" novalidate>
+        <!-- Honeypot (spam trap, hidden from real users) -->
+        <div class="apply-hp">
+          <label for="apply-website">Website</label>
+          <input type="text" id="apply-website" name="website" autocomplete="off" tabindex="-1">
+        </div>
+
+        <div class="apply-field">
+          <label for="apply-track">Internship Track <span class="req">*</span></label>
+          <select id="apply-track" required>
+            <option value="">Select a track</option>
+            <option>Web Development</option>
+            <option>Java Programming</option>
+            <option>Android Development</option>
+            <option>Python Programming</option>
+            <option>Cloud Computing</option>
+            <option>Digital Marketing</option>
+            <option>Graphic Design</option>
+            <option>Data Analytics</option>
+            <option>Security Analytics</option>
+            <option>Data Science</option>
+            <option>Artificial Intelligence</option>
+            <option>Machine Learning</option>
+          </select>
+        </div>
+
+        <div class="apply-row">
+          <div class="apply-field">
+            <label for="apply-name">Full Name <span class="req">*</span></label>
+            <input type="text" id="apply-name" required placeholder="Your full name">
+          </div>
+          <div class="apply-field">
+            <label for="apply-email">Email <span class="req">*</span></label>
+            <input type="email" id="apply-email" required placeholder="you@example.com">
+          </div>
+        </div>
+
+        <div class="apply-row">
+          <div class="apply-field">
+            <label for="apply-phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="apply-phone" required placeholder="10-digit mobile number">
+          </div>
+          <div class="apply-field">
+            <label for="apply-college">College / University <span class="req">*</span></label>
+            <input type="text" id="apply-college" required placeholder="Your institution name">
+          </div>
+        </div>
+
+        <div class="apply-field">
+          <label for="apply-city">City</label>
+          <input type="text" id="apply-city" placeholder="Your city">
+        </div>
+
+        <div class="apply-field">
+          <label for="apply-resume">Resume / LinkedIn Link</label>
+          <input type="url" id="apply-resume" placeholder="Google Drive / LinkedIn URL (optional)">
+        </div>
+
+        <div class="apply-field">
+          <label for="apply-message">Why do you want to join this internship?</label>
+          <textarea id="apply-message" placeholder="Tell us a little about yourself (optional)"></textarea>
+        </div>
+
+        <button type="submit" class="apply-submit-btn" id="apply-submit-btn">
+          <span class="apply-spinner" id="apply-spinner"></span>
+          <span id="apply-submit-text">Submit Application</span>
+        </button>
+
+        <div class="apply-msg" id="apply-msg"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+
+  <div class="footer-top">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="logo-icon.png" alt="Intern Crowd Logo" style="width:44px;height:44px;object-fit:contain;" />
+        <span class="footer-logo-text">INTERN<span class="crowd">CROWD</span></span>
+      </div>
+      <p class="footer-tagline">In every student there is a power to change the world. We help you find yours — through real skills, real projects, and real opportunities.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/intern-crowd/" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://www.instagram.com/intern.crowd?igsh=MWV5YmJ0cmlnMXRwaA%3D%3D&utm_source=qr" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@Interncrowd" target="_blank" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#0b1f6b" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </a>
+        <a href="https://t.me/+Y9DlB1TRKmYxOGY9" target="_blank" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </a>
+      </div>
+
+      <div class="footer-stats">
+        <div class="footer-stat-item">
+          <span class="stat-num">5000+</span>
+          <span class="stat-label">Students</span>
+        </div>
+        <div class="footer-stat-item">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">Programs</span>
+        </div>
+        <div class="footer-stat-item">
+          <span class="stat-num">95%</span>
+          <span class="stat-label">Satisfaction</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+         <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="verify.html">Verify Certificate</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- Programs -->
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#courses">Web Development</a></li>
+        <li><a href="#courses">Python Programming</a></li>
+        <li><a href="#courses">Java Programming</a></li>
+        <li><a href="#courses">Android Dev</a></li>
+        <li><a href="#courses">AI &amp; Machine Learning</a></li>
+        <li><a href="#courses">Data Analytics</a></li>
+        <li><a href="#courses">Digital Marketing</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-col footer-newsletter">
+      <h4>Stay Updated</h4>
+      <p>Get the latest internship openings and course launches straight to your inbox. No spam, ever.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="your@email.com" id="footer-email">
+        <button type="button" onclick="
+          var el=document.getElementById('footer-email');
+          if(el.value){this.textContent='Subscribed ✓';el.value='';setTimeout(()=>{this.textContent='Subscribe';},2500);}
+        ">Subscribe</button>
+      </div>
+
+      <div style="margin-top:28px;">
+        <h4 style="font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin:0 0 16px 0;">Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="mailto:hello@interncrowd.in" style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            hello@interncrowd.in
+          </a>
+          <a href="https://interncrowd.in" style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            www.interncrowd.in
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <p>© 2026 <a href="index.html">Intern Crowd</a>. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="cookie-policy.html">Cookie Policy</a>
+    </div>
+  </div>
+
+</footer>
+
+<script src="main.js"></script>
+
+<!-- Firebase-powered application submission -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  // Same Firebase project already used by certificate-validation.js
+  const firebaseConfig = {
+    apiKey: "AIzaSyBhyA8pxUFyeeoU2vkdlakUsQYv339H2TY",
+    authDomain: "intern-crowd-2ed57.firebaseapp.com",
+    projectId: "intern-crowd-2ed57",
+    storageBucket: "intern-crowd-2ed57.firebasestorage.app",
+    messagingSenderId: "978737778446",
+    appId: "1:978737778446:web:ea6000c84cbc08fed0d15f",
+    measurementId: "G-J45L3QT1N6"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Pre-fill track from ?track= query param (set by "Apply Now" buttons)
+  const params = new URLSearchParams(window.location.search);
+  const trackParam = params.get('track');
+  const trackSelect = document.getElementById('apply-track');
+  if (trackParam) {
+    const match = Array.from(trackSelect.options).find(o => o.value === trackParam);
+    if (match) trackSelect.value = trackParam;
+  }
+
+  const form = document.getElementById('apply-form');
+  const submitBtn = document.getElementById('apply-submit-btn');
+  const submitText = document.getElementById('apply-submit-text');
+  const spinner = document.getElementById('apply-spinner');
+  const msgBox = document.getElementById('apply-msg');
+
+  function showMsg(text, type) {
+    msgBox.textContent = text;
+    msgBox.className = 'apply-msg show ' + type;
+  }
+
+  function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function isValidPhone(v) { return /^[0-9+\-\s()]{7,15}$/.test(v); }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    msgBox.className = 'apply-msg';
+
+    // Honeypot check — bots fill hidden fields, humans don't
+    if (document.getElementById('apply-website').value) {
+      return; // silently drop
+    }
+
+    const data = {
+      track: trackSelect.value.trim(),
+      name: document.getElementById('apply-name').value.trim(),
+      email: document.getElementById('apply-email').value.trim(),
+      phone: document.getElementById('apply-phone').value.trim(),
+      college: document.getElementById('apply-college').value.trim(),
+      city: document.getElementById('apply-city').value.trim(),
+      resume: document.getElementById('apply-resume').value.trim(),
+      message: document.getElementById('apply-message').value.trim(),
+    };
+
+    if (!data.track || !data.name || !data.email || !data.phone || !data.college) {
+      showMsg('Please fill in all required fields.', 'error');
+      return;
+    }
+    if (!isValidEmail(data.email)) {
+      showMsg('Please enter a valid email address.', 'error');
+      return;
+    }
+    if (!isValidPhone(data.phone)) {
+      showMsg('Please enter a valid phone number.', 'error');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    spinner.classList.add('show');
+    submitText.textContent = 'Submitting...';
+
+    try {
+      await addDoc(collection(db, 'internshipApplications'), {
+        ...data,
+        status: 'pending',
+        submittedAt: serverTimestamp(),
+        source: 'interncrowd.in/apply.html',
+        userAgent: navigator.userAgent
+      });
+
+      form.reset();
+      if (trackParam) trackSelect.value = trackParam;
+      showMsg('✅ Application submitted successfully! Our team will reach out to you within 2–3 working days.', 'success');
+    } catch (err) {
+      console.error('Application submit error:', err);
+      showMsg('Something went wrong while submitting. Please try again in a moment.', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      spinner.classList.remove('show');
+      submitText.textContent = 'Submit Application';
+    }
+  });
+</script>
+
+</body>
+</html>
