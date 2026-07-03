@@ -53,6 +53,52 @@
   .apply-spinner{width:16px;height:16px;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:apply-spin .7s linear infinite;display:none;}
   .apply-spinner.show{display:inline-block;}
   @keyframes apply-spin{to{transform:rotate(360deg);}}
+
+  /* Tighter hero spacing on this page */
+  #top .page-hero{padding-top:28px;padding-bottom:20px;}
+  .apply-wrap{padding-top:20px;}
+
+  /* File upload field */
+  .apply-file-wrap{
+    display:flex;align-items:center;gap:10px;width:100%;padding:10px 14px;border-radius:10px;
+    border:1.5px dashed var(--blue-100);background:var(--blue-50);cursor:pointer;transition:border-color .15s;
+  }
+  .apply-file-wrap:hover{border-color:var(--blue-500);}
+  .apply-file-wrap input[type="file"]{flex:1;font-size:13.5px;color:var(--ink);cursor:pointer;}
+  .apply-file-hint{font-size:12px;color:var(--gray-600);margin-top:6px;}
+
+  /* WhatsApp mandatory join box */
+  .apply-whatsapp-box{
+    background:#e9fdf1;border:1.5px solid #b7e6cc;border-radius:12px;padding:16px 18px;margin-bottom:20px;
+  }
+  .apply-whatsapp-box p{margin:0 0 10px;font-size:14px;color:var(--ink);}
+  .apply-whatsapp-box a.wa-link{
+    display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-weight:700;
+    font-size:14px;padding:9px 16px;border-radius:8px;text-decoration:none;
+  }
+  .apply-whatsapp-box a.wa-link:hover{background:#1ebe5a;}
+  .apply-checkbox-row{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13.5px;color:var(--ink);}
+  .apply-checkbox-row input{margin-top:3px;flex-shrink:0;width:16px;height:16px;}
+  .apply-checkbox-row label{font-weight:400;}
+
+  /* Success / welcome view */
+  .apply-success-view{display:none;}
+  .apply-success-view.show{display:block;}
+  .apply-success-view h2{font-size:24px;color:var(--ink);margin:0 0 4px;}
+  .apply-success-view .success-tick{font-size:40px;line-height:1;margin-bottom:10px;}
+  .apply-success-view h3{font-size:17px;color:var(--blue-900);margin:26px 0 10px;}
+  .apply-success-view p{font-size:14.5px;color:var(--gray-600);line-height:1.65;margin:0 0 10px;}
+  .apply-success-view .faq-item{margin-bottom:14px;}
+  .apply-success-view .faq-item .q{font-weight:700;color:var(--ink);font-size:14.5px;margin-bottom:4px;}
+  .apply-success-view .faq-item .a{font-size:14px;color:var(--gray-600);line-height:1.6;}
+  .apply-success-view ul.perks-list{margin:0;padding:0;list-style:none;}
+  .apply-success-view ul.perks-list li{font-size:14.5px;color:var(--ink);padding:8px 0;border-bottom:1px solid var(--blue-50);}
+  .apply-success-view .wa-cta{margin-top:8px;}
+  .apply-success-view .back-home-btn{
+    display:inline-block;margin-top:26px;padding:12px 22px;border-radius:10px;background:var(--blue-600);
+    color:#fff;font-weight:700;font-size:14.5px;text-decoration:none;
+  }
+  .apply-success-view .back-home-btn:hover{background:var(--blue-700);}
 </style>
 </head>
 <body>
@@ -98,6 +144,7 @@
 
   <div class="apply-wrap">
     <div class="apply-card">
+      <div id="apply-form-view">
       <h2>Internship Application</h2>
       <p class="apply-sub">All fields marked <span class="req">*</span> are required.</p>
 
@@ -155,13 +202,43 @@
         </div>
 
         <div class="apply-field">
-          <label for="apply-resume">Resume / LinkedIn Link</label>
-          <input type="url" id="apply-resume" placeholder="Google Drive / LinkedIn URL (optional)">
+          <label for="apply-resume">Upload Resume</label>
+          <div class="apply-file-wrap">
+            <input type="file" id="apply-resume" accept=".pdf,.doc,.docx">
+          </div>
+          <p class="apply-file-hint">PDF or Word file, max 5MB (optional). You can also just paste a Drive/LinkedIn link below.</p>
+          <input type="url" id="apply-resume-link" placeholder="Or paste Google Drive / LinkedIn URL (optional)" style="margin-top:8px;">
         </div>
 
         <div class="apply-field">
-          <label for="apply-message">Why do you want to join this internship?</label>
-          <textarea id="apply-message" placeholder="Tell us a little about yourself (optional)"></textarea>
+          <label for="apply-source">How did you hear about Intern Crowd?</label>
+          <select id="apply-source">
+            <option value="">Select an option (optional)</option>
+            <option>Instagram</option>
+            <option>LinkedIn</option>
+            <option>WhatsApp</option>
+            <option>Friend / Referral</option>
+            <option>College / Faculty</option>
+            <option>Google Search</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="apply-field">
+          <label for="apply-message">Why do you want to join Intern Crowd?</label>
+          <textarea id="apply-message" placeholder="Tell us a little about yourself and your goals (optional)"></textarea>
+        </div>
+
+        <div class="apply-whatsapp-box">
+          <p>📌 <strong>Mandatory:</strong> Join our official WhatsApp community to receive updates about your application and internship program.</p>
+          <a class="wa-link" href="https://chat.whatsapp.com/CmsL1KyNBar8kFJYq9qEVy" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.09c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.15-4.9-4.35-.14-.19-1.17-1.56-1.17-2.97 0-1.41.74-2.1 1-2.39.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.48-.14.14-.28.28-.12.55.16.28.71 1.17 1.53 1.89 1.05.93 1.94 1.22 2.21 1.36.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.19-.28.37-.23.62-.14.26.1 1.63.77 1.91.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>
+            Join WhatsApp Group
+          </a>
+          <div class="apply-checkbox-row">
+            <input type="checkbox" id="apply-wa-confirm" required>
+            <label for="apply-wa-confirm">I have joined the Intern Crowd WhatsApp community <span class="req">*</span></label>
+          </div>
         </div>
 
         <button type="submit" class="apply-submit-btn" id="apply-submit-btn">
@@ -171,6 +248,64 @@
 
         <div class="apply-msg" id="apply-msg"></div>
       </form>
+      </div>
+
+      <!-- SUCCESS / WELCOME VIEW (shown after successful submission) -->
+      <div class="apply-success-view" id="apply-success-view">
+        <div class="success-tick">🚀</div>
+        <h2>Welcome to Intern Crowd Internship Program 2026</h2>
+        <p>Take the next step toward building your career with Intern Crowd — a platform dedicated to empowering students through practical learning, real-world exposure, and industry-focused internships.</p>
+        <p>Our internship programs are designed to help you develop in-demand skills, gain hands-on experience, and strengthen your professional profile for future opportunities.</p>
+        <p>Don't miss this opportunity to enhance your skills, expand your network, and accelerate your career growth. You'll receive a confirmation email shortly!</p>
+
+        <h3>Frequently Asked Questions</h3>
+        <div class="faq-item">
+          <div class="q">Q1. What is the duration of the internship?</div>
+          <div class="a">This is a 4–6 week virtual internship program, designed to provide flexible learning and practical project experience.</div>
+        </div>
+        <div class="faq-item">
+          <div class="q">Q2. How do I register for this internship program?</div>
+          <div class="a">Simply complete the application form and submit your details. Once reviewed, eligible candidates will receive an Internship Offer Letter via email.</div>
+        </div>
+        <div class="faq-item">
+          <div class="q">Q3. What benefits will I gain from this internship?</div>
+          <div class="a">Hands-on industry experience in your selected domain, practical knowledge through real-world tasks and projects, resume and portfolio development, LinkedIn profile optimization guidance, and improved communication and workplace readiness skills.</div>
+        </div>
+        <div class="faq-item">
+          <div class="q">Q4. Is this internship completely virtual?</div>
+          <div class="a">Yes, this is a 100% virtual/remote internship, allowing you to participate from anywhere.</div>
+        </div>
+        <div class="faq-item">
+          <div class="q">Q5. Will I receive a certificate after completion?</div>
+          <div class="a">Yes, all successful interns will receive a verifiable Internship Completion Certificate.</div>
+        </div>
+
+        <h3>Internship Perks &amp; Benefits</h3>
+        <ul class="perks-list">
+          <li>✅ Offer Letter – Official internship onboarding letter from Intern Crowd.</li>
+          <li>✅ Internship Completion Certificate – A verifiable certificate upon successful completion.</li>
+          <li>✅ Letter of Recommendation (LOR) – Awarded to top-performing interns.</li>
+          <li>✅ Appreciation Letter – Special recognition for outstanding contributors.</li>
+          <li>✅ Networking Opportunities – Connect with students, mentors, and professionals worldwide.</li>
+          <li>✅ Learning Opportunities – Work on innovative projects in a collaborative environment.</li>
+          <li>✅ Job Opportunities – Eligible candidates may receive future roles with Intern Crowd.</li>
+          <li>✅ Hackathons &amp; Challenges – Participate in coding challenges and skill-building events.</li>
+        </ul>
+
+        <h3>Stay Connected With Us</h3>
+        <p>For important updates and announcements, join our official community channels (Mandatory):</p>
+        <div class="wa-cta">
+          <a class="wa-link" href="https://chat.whatsapp.com/CmsL1KyNBar8kFJYq9qEVy" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.09c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.15-4.9-4.35-.14-.19-1.17-1.56-1.17-2.97 0-1.41.74-2.1 1-2.39.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.48-.14.14-.28.28-.12.55.16.28.71 1.17 1.53 1.89 1.05.93 1.94 1.22 2.21 1.36.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.19-.28.37-.23.62-.14.26.1 1.63.77 1.91.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>
+            Join WhatsApp Community
+          </a>
+        </div>
+
+        <p style="margin-top:22px;"><strong>Important Note:</strong> Please submit only one application per domain. Multiple submissions for the same domain may result in your application being considered invalid.</p>
+        <p>We look forward to helping you learn, grow, and succeed with Intern Crowd.<br><strong>Dream Big. We'll Help You Get There. 🚀</strong></p>
+
+        <a href="index.html" class="back-home-btn">Back to Home</a>
+      </div>
     </div>
   </div>
 </div>
@@ -296,6 +431,7 @@
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
   import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
   // Same Firebase project already used by certificate-validation.js
   const firebaseConfig = {
@@ -310,6 +446,7 @@
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
+  const storage = getStorage(app);
 
   // Pre-fill track from ?track= query param (set by "Apply Now" buttons)
   const params = new URLSearchParams(window.location.search);
@@ -343,6 +480,10 @@
       return; // silently drop
     }
 
+    const resumeFileInput = document.getElementById('apply-resume');
+    const resumeFile = resumeFileInput.files && resumeFileInput.files[0];
+    const waConfirmed = document.getElementById('apply-wa-confirm').checked;
+
     const data = {
       track: trackSelect.value.trim(),
       name: document.getElementById('apply-name').value.trim(),
@@ -350,7 +491,8 @@
       phone: document.getElementById('apply-phone').value.trim(),
       college: document.getElementById('apply-college').value.trim(),
       city: document.getElementById('apply-city').value.trim(),
-      resume: document.getElementById('apply-resume').value.trim(),
+      resumeLink: document.getElementById('apply-resume-link').value.trim(),
+      heardFrom: document.getElementById('apply-source').value.trim(),
       message: document.getElementById('apply-message').value.trim(),
     };
 
@@ -366,14 +508,35 @@
       showMsg('Please enter a valid phone number.', 'error');
       return;
     }
+    if (resumeFile && resumeFile.size > 5 * 1024 * 1024) {
+      showMsg('Resume file is too large. Please upload a file under 5MB.', 'error');
+      return;
+    }
+    if (!waConfirmed) {
+      showMsg('Please join our WhatsApp community and confirm before submitting.', 'error');
+      return;
+    }
 
     submitBtn.disabled = true;
     spinner.classList.add('show');
     submitText.textContent = 'Submitting...';
 
     try {
+      // Upload resume file to Firebase Storage (if provided)
+      let resumeFileUrl = '';
+      if (resumeFile) {
+        submitText.textContent = 'Uploading resume...';
+        const safeName = resumeFile.name.replace(/[^a-zA-Z0-9.\-_]/g, '_');
+        const storagePath = `resumes/${Date.now()}_${safeName}`;
+        const fileRef = ref(storage, storagePath);
+        await uploadBytes(fileRef, resumeFile);
+        resumeFileUrl = await getDownloadURL(fileRef);
+        submitText.textContent = 'Submitting...';
+      }
+
       await addDoc(collection(db, 'internshipApplications'), {
         ...data,
+        resumeFileUrl,
         status: 'pending',
         submittedAt: serverTimestamp(),
         source: 'interncrowd.in/apply.html',
@@ -382,7 +545,11 @@
 
       form.reset();
       if (trackParam) trackSelect.value = trackParam;
-      showMsg('✅ Application submitted successfully! Our team will reach out to you within 2–3 working days.', 'success');
+
+      // Switch to the success / welcome view
+      document.getElementById('apply-form-view').style.display = 'none';
+      document.getElementById('apply-success-view').classList.add('show');
+      document.getElementById('apply-success-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
     } catch (err) {
       console.error('Application submit error:', err);
       showMsg('Something went wrong while submitting. Please try again in a moment.', 'error');
