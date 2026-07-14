@@ -2826,3 +2826,202 @@ html.dark .home-stat-card .stat-label{ color:#9aaacb; }
   color:var(--blue-700); display:flex; align-items:center; gap:6px;
 }
 html.dark .hero-microcopy{ color:#9db8ff; }
+
+/* ===================================================== */
+/* ---------- COURSES PAGE: FREE-COURSES REDESIGN ---------- */
+/* ===================================================== */
+
+/* Floating hero badges */
+.hero-badge{
+  position:absolute;
+  display:flex; align-items:center; gap:9px;
+  background:var(--white);
+  color:var(--ink);
+  font-size:12.5px; font-weight:700;
+  padding:11px 16px;
+  border-radius:14px;
+  box-shadow:0 14px 30px -10px rgba(20,40,120,0.28);
+  z-index:3;
+  white-space:nowrap;
+}
+.hero-badge svg{width:18px; height:18px; color:var(--blue-600); flex-shrink:0;}
+html.dark .hero-badge{ background:#131a2e; color:#e7ecff; }
+@media (max-width:1100px){ .hero-badge{ display:none; } }
+
+/* Course card: FREE badge */
+.free-badge{
+  position:absolute;
+  top:20px; right:20px;
+  background:#e6f9ee;
+  color:#16a34a;
+  font-size:10.5px; font-weight:800;
+  letter-spacing:0.5px;
+  padding:5px 11px;
+  border-radius:20px;
+}
+html.dark .free-badge{ background:rgba(22,163,74,0.16); color:#4ade80; }
+
+/* Course card meta row */
+.course-meta{
+  font-size:12.5px;
+  color:var(--gray-600);
+  margin:0 0 20px 0;
+}
+
+/* Course card price row */
+.course-price-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding-top:16px;
+  margin-top:auto;
+  border-top:1px solid #eef0f6;
+}
+html.dark .course-price-row{ border-top-color:rgba(255,255,255,0.08); }
+.course-price-row .start-now-btn{ width:100%; justify-content:center; }
+.cert-price{ font-size:12px; color:var(--gray-600); line-height:1.3; }
+.cert-price strong{ display:block; color:var(--blue-600); font-size:14.5px; }
+.start-now-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:var(--blue-600);
+  color:var(--white);
+  font-weight:700;
+  font-size:13px;
+  padding:10px 16px;
+  border-radius:9px;
+  white-space:nowrap;
+  transition:background 0.25s ease, transform 0.25s ease;
+}
+.start-now-btn svg{ width:13px; height:13px; }
+.start-now-btn:hover{ background:var(--blue-700); transform:translateX(2px); }
+
+/* ---------- HOW IT WORKS ---------- */
+.steps-section{
+  background:var(--blue-50);
+  padding:76px 56px;
+  margin-bottom:0;
+}
+html.dark .steps-section{ background:#0e1526; }
+.steps-row{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:24px;
+  max-width:1140px;
+  margin:0 auto;
+}
+.step-item{
+  text-align:center;
+  padding:0 16px;
+}
+.step-card{
+  background:var(--white);
+  border-radius:18px;
+  padding:32px 20px 28px;
+  box-shadow:0 14px 30px -18px rgba(20,40,120,0.25);
+  border:1px solid rgba(26,63,214,0.08);
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+}
+.step-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 36px -16px rgba(20,40,120,0.32);
+}
+html.dark .step-card{ background:#131a2e; border-color:rgba(255,255,255,0.06); }
+.step-num{
+  width:32px; height:32px;
+  border-radius:50%;
+  background:var(--blue-600);
+  color:var(--white);
+  font-weight:800; font-size:13.5px;
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 18px;
+  box-shadow:0 8px 18px -6px rgba(26,63,214,0.5);
+}
+.step-icon{
+  width:58px; height:58px;
+  border-radius:16px;
+  background:var(--blue-50);
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 18px;
+  color:var(--blue-600);
+}
+html.dark .step-icon{ background:#0e1526; }
+.step-icon svg{ width:26px; height:26px; }
+.step-item h4{ font-size:15.5px; font-weight:700; color:var(--ink); margin:0 0 6px; }
+.step-item p{ font-size:13px; color:var(--gray-600); line-height:1.5; margin:0; }
+@media (max-width:900px){
+  .steps-section{ padding:56px 22px; }
+  .steps-row{ grid-template-columns:repeat(2, 1fr); }
+}
+@media (max-width:560px){
+  .steps-row{ grid-template-columns:1fr; }
+}
+
+/* ---------- CERTIFICATE + TESTIMONIALS ---------- */
+.cert-testimonial-section{
+  display:grid;
+  grid-template-columns:1fr 1.35fr;
+  gap:56px;
+  align-items:start;
+  max-width:1280px;
+  margin:0 auto;
+  padding:80px 56px 90px;
+}
+.cert-card{
+  background:var(--white);
+  border-radius:22px;
+  box-shadow:0 20px 48px -22px rgba(20,40,120,0.26);
+  padding:34px 32px;
+  text-align:left;
+  position:sticky;
+  top:100px;
+}
+html.dark .cert-card{ background:#131a2e; }
+.cert-card h3{
+  font-size:19px; font-weight:800; color:var(--ink);
+  line-height:1.35; margin:0;
+}
+@media (max-width:1000px){
+  .cert-testimonial-section{ grid-template-columns:1fr; padding:60px 22px 70px; }
+  .cert-card{ position:static; }
+}
+
+/* ---------- FINAL CTA BANNER ---------- */
+.final-cta-banner{
+  background:linear-gradient(120deg, var(--blue-700), var(--blue-500));
+  border-radius:24px;
+  margin:0 56px 80px;
+  padding:44px 48px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+  flex-wrap:wrap;
+  color:var(--white);
+}
+.final-cta-left{ display:flex; align-items:flex-start; gap:20px; flex:1 1 420px; }
+.final-cta-icon{
+  width:56px; height:56px; flex-shrink:0;
+  background:rgba(255,255,255,0.16);
+  border-radius:16px;
+  display:flex; align-items:center; justify-content:center;
+}
+.final-cta-left h2{ font-size:23px; font-weight:800; margin:2px 0 8px; }
+.final-cta-left p{ font-size:14px; line-height:1.55; opacity:0.92; margin:0 0 14px; max-width:460px; }
+.final-cta-checks{ display:flex; gap:18px; flex-wrap:wrap; font-size:12.5px; font-weight:700; }
+.final-cta-btn{
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--white);
+  color:var(--blue-600);
+  font-weight:800; font-size:15px;
+  padding:16px 30px;
+  border-radius:11px;
+  white-space:nowrap;
+  box-shadow:0 14px 30px -10px rgba(0,0,0,0.3);
+}
+@media (max-width:720px){
+  .final-cta-banner{ margin:0 22px 60px; padding:32px 26px; }
+  .final-cta-btn{ width:100%; justify-content:center; }
+}
