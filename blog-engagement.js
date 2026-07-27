@@ -1,4 +1,4 @@
-// ---------- Live Blog Views + Likes (Firebase Realtime Database) ----------
+// ---------- Live Blog Views (Firebase Realtime Database) ----------
 import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
@@ -32,13 +32,10 @@ function formatNum(n) {
 function initEngagement() {
   const slug = getSlug();
   const viewsEls = document.querySelectorAll("[data-views-num]");
-  const likesEls = document.querySelectorAll("[data-likes-num]");
-  const likeBtns = document.querySelectorAll("[data-like-btn]");
 
-  if (!viewsEls.length && !likesEls.length && !likeBtns.length) return;
+  if (!viewsEls.length) return;
 
   const viewedKey = "ic_viewed_" + slug;
-  const likedKey = "ic_liked_" + slug;
 
   // Count one real view per browser session (avoids inflating on refresh/back-forward)
   if (!sessionStorage.getItem(viewedKey)) {
@@ -50,29 +47,7 @@ function initEngagement() {
   onValue(ref(db, "blogStats/" + slug), (snap) => {
     const data = snap.val() || {};
     const v = formatNum(data.views);
-    const l = formatNum(data.likes);
     viewsEls.forEach((el) => (el.textContent = v));
-    likesEls.forEach((el) => (el.textContent = l));
-  });
-
-  likeBtns.forEach((btn) => {
-    if (localStorage.getItem(likedKey) === "1") btn.classList.add("liked");
-
-    btn.addEventListener("click", () => {
-      const isLiked = localStorage.getItem(likedKey) === "1";
-      const delta = isLiked ? -1 : 1;
-      runTransaction(ref(db, "blogStats/" + slug + "/likes"), (cur) => Math.max(0, (cur || 0) + delta))
-        .then(() => {
-          if (isLiked) {
-            localStorage.removeItem(likedKey);
-            likeBtns.forEach((b) => b.classList.remove("liked"));
-          } else {
-            localStorage.setItem(likedKey, "1");
-            likeBtns.forEach((b) => b.classList.add("liked"));
-          }
-        })
-        .catch(() => {});
-    });
   });
 }
 
@@ -83,12 +58,10 @@ function initListingCards() {
   cards.forEach((card) => {
     const slug = card.getAttribute("data-blog-slug");
     const vEl = card.querySelector("[data-views-num]");
-    const lEl = card.querySelector("[data-likes-num]");
-    if (!vEl && !lEl) return;
+    if (!vEl) return;
     onValue(ref(db, "blogStats/" + slug), (snap) => {
       const data = snap.val() || {};
-      if (vEl) vEl.textContent = formatNum(data.views);
-      if (lEl) lEl.textContent = formatNum(data.likes);
+      vEl.textContent = formatNum(data.views);
     });
   });
 }
