@@ -2737,40 +2737,7 @@
   color: var(--blue-400);
 }
 .blog-engagement .views-count svg { width: 15px; height: 15px; flex-shrink: 0; }
-.like-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: #fff;
-  border: 1.5px solid var(--blue-100);
-  padding: 6px 15px;
-  border-radius: 999px;
-  cursor: pointer;
-  color: var(--blue-400);
-  font-weight: 700;
-  font-size: 13.5px;
-  font-family: inherit;
-  transition: all 0.2s ease;
-}
-.like-btn svg {
-  width: 15px;
-  height: 15px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2.2;
-  transition: all 0.2s ease;
-}
-.like-btn:hover { border-color: var(--blue-600); color: var(--blue-600); }
-.like-btn:active { transform: scale(0.94); }
-.like-btn.liked { color: #e6294b; border-color: #ffd3dc; background: #fff1f4; }
-.like-btn.liked svg { fill: #e6294b; stroke: #e6294b; }
-.like-btn.liked:hover { color: #e6294b; border-color: #ffb3c1; }
-
 html.dark .blog-engagement .views-count { color: #9aaacb; }
-html.dark .like-btn { background: #131d3a; border-color: #2a3d65; color: #9aaacb; }
-html.dark .like-btn:hover { border-color: var(--blue-400); color: var(--blue-400); }
-html.dark .like-btn.liked { color: #ff6b85; border-color: #5a2233; background: #2a1420; }
-html.dark .like-btn.liked svg { fill: #ff6b85; stroke: #ff6b85; }
 
 /* Blog listing card mini stats */
 .blog-card-stats {
